@@ -4,9 +4,9 @@ Term Project
 THE PLAN
 
 By next Wednesday (April 1st), we should have the design of our pages completed.
-There will be four parts to work on:
+There will be five parts to work on:
 
-1. Welcome Page: needs sign-in area (username/password), which sends user to Project Search Page after login, also has link to Sign-Up Form (1 page)
+1. Welcome Page: needs sign-in area (username/password), which sends user to Project Search Page after login, also has link to Sign-Up Form (1 page) <b>Tiffany</b>
 
 2. Sign-up Form (linked from Welcome Page) that goes to a created User Profile* when completed (2 pages)
 
