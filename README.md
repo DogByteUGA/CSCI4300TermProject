@@ -1,7 +1,7 @@
 # CSCI4300TermProject
 Term Project
 
-THE PLAN
+--Step 1: Design--
 
 By next Wednesday (April 1st), we should have the basic design of our pages completed.
 <br>
@@ -29,3 +29,5 @@ Pages that have top navigation bar:
 <li>Project Profile Page
 <li>Project Search Page
 </ul>
+
+Again, this is only design. Don't worry about what the pages are going to actually do yet. Make sure to use UGA colors and put your pages up on GitHub when you're done so we can look at them.
