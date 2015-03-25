@@ -4,6 +4,7 @@ Term Project
 THE PLAN
 
 By next Wednesday (April 1st), we should have the basic design of our pages completed.
+<br>
 <br>Put your name next to to what you'd like to work on so we can all know what we need to do.
 
 There will be five parts to work on:
