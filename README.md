@@ -30,4 +30,4 @@ Pages that have top navigation bar:
 <li>Project Search Page
 </ul>
 
-Again, this is only design. Don't worry about what the pages are going to actually do yet. Make sure to use UGA colors and put your pages up on GitHub when you're done so we can look at them.
+Again, this is only design. Don't worry about what the pages are going to actually do yet (for example: if your page links to someone else's, only worry about your own). Make sure to use UGA colors and put your pages up on GitHub when you're done so we can look at them.
