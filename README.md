@@ -17,5 +17,5 @@ There will be five parts to work on:
 
 4. <b>Project Search Page</b>*: all the available projects on the website (1 page)
 
-5. Top Navigation Bar: Should read "Welcome, Username!" , "My Profile" (link to User Profile), "Search Projects" (Link to Search Projects) on the pages noted by *. This should only be seen by logged in users. <b><i>Tiffany</i></b>
+5. <b>Top Navigation Bar</b>: Should read "Welcome, Username!" , "My Profile" (link to User Profile), "Search Projects" (Link to Search Projects) on the pages noted by *. This should only be seen by logged in users. <b><i>Tiffany</i></b>
 
