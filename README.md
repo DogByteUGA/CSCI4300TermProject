@@ -23,7 +23,7 @@ There will be five parts to work on:
 <br>on the pages noted below. This should only be seen by logged in users. <b><i>Tiffany</i></b>
 
 Pages that have top navigation bar:
-User Profile Page
-Project Creation Page
-Project Profile Page
-Project Search Page
+<ul>User Profile Page
+<ul>Project Creation Page
+<ul>Project Profile Page
+<ul>Project Search Page
