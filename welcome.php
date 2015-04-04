@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<?php 
+
+
+?>
+
 <html>
 	<head>
 	<link href="ugacreate.css" type="text/css" rel="stylesheet" />
@@ -36,3 +40,7 @@
 
 	</body>
 </html>
+
+<?php
+
+?>
