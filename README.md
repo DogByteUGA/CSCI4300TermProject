@@ -15,7 +15,7 @@ There will be five parts to work on:
 
 3. <b>Project Creation Form</b>: (linked from User Profile) that goes to a create Project Profile* when completed (2 pages), generating a new link to this on the User Profile. There should also be a link back to the user who created the project. <b><i>Dionte'</i></b>
 
-4. <b>Project Search Page</b>: all the available projects on the website (1 page)
+4. <b>Project Search Page</b>: all the available projects on the website (1 page)RYAN
 
 5. <b>Top Navigation Bar</b>: Should read "Welcome, Username!" and have the following options: 
 <br>"My Profile" (link to User Profile)
