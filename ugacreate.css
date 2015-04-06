@@ -3,6 +3,14 @@
 	font-family: "Verdana", "Geneva", sans-serif;
 }
 
+.modal{
+
+
+	role = "dialog";
+	aria-labelledby="myModalLabel";
+	aria-hidden="true";
+}
+
 h1{
 	margin-top: 0em;
 }
