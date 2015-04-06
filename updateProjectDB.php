@@ -20,7 +20,7 @@ project_type = computer science
 
 //right now only one project type can be chosen
 
-	$pid = 17;
+	$pid = 18;
 	$ptitle = (isset($_POST['ptitle']) ?  htmlspecialchars($_POST['ptitle']) : "");
 	$cname = (isset($_POST['creatorName']) ?  htmlspecialchars($_POST['creatorName']) : "");
 	$pdescription = (isset($_POST['pdescription']) ?  htmlspecialchars($_POST['pdescription']) : "");
@@ -33,7 +33,9 @@ try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO projects (project_id, project_title,creator_name, project_description, project_date, project_location, project_type) VALUES ($pid, '$ptitle', '$cname', '$pdescription', '$pdate','$plocation', '$ptype')";
+    $sql = "INSERT INTO projects (project_title,creator_name, project_description, project_date, 
+      project_location, project_type) 
+      VALUES ('$ptitle', '$cname', '$pdescription', '$pdate','$plocation', '$ptype')";
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";
