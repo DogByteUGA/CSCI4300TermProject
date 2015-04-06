@@ -11,7 +11,7 @@ There will be five parts to work on:
 
 1. <b>Welcome Page</b>: needs sign-in area (username/password), which sends user to Project Search Page after login, also has link to Sign-Up Form (1 page) <b><i>Tiffany</i></b>
 
-2. <b>Sign-up Form</b>: (linked from Welcome Page) that goes to a created User Profile when completed (2 pages) <b><i>MIKE</i></b>
+2. <b>Sign-up Form</b>: (linked from Welcome Page) that goes to a created User Profile when completed (2 pages) <b><i>MIKE</i></b> <b><i>Ryan</i></b>
 
 3. <b>Project Creation Form</b>: (linked from User Profile) that goes to a create Project Profile* when completed (2 pages), generating a new link to this on the User Profile. There should also be a link back to the user who created the project. <b><i>Dionte'</i></b>
 
