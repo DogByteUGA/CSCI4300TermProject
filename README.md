@@ -32,3 +32,11 @@ Pages that have top navigation bar:
 
 Again, this is only design. Don't worry about what the pages are going to actually do yet (for example: if your page links to someone else's, only worry about your own). Make sure to use UGA colors and put your pages up on GitHub when you're done so we can look at them.
 
+--Step 2: Functionality--
+
+By next Monday (April 13), we should be able to go through our website like the users can. What I mean is that we should be able to click through the site with the top bar and through links without any hassle. The top bar should be able to "know" what page you're on - so if you click on "My Profile" while on that page, it won't do anything.
+So that basically means that we need the site to be functional and useable.
+Everyone should make sure that whatever page they worked on links correctly to the other pages as outlined above. If your page takes in user data, make sure that works too.
+
+I'd like for us to tackle the harder things, like implementing the APIs (Maps, Twitter? for updates) together so one person won't be bogged down with something heavy.
+
