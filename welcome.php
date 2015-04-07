@@ -89,35 +89,39 @@
         		 <h4 class="modal-title" id="myModalLabel">Create Account</h4>
       			</div>
       		<div class="modal-body">
-        	  <form role="form">
+        	  <form role="form" enctype="multipart/form-data" action="uploadImg.php" method="POST">
    			  <div class="form-group">
       		     <label>Name: </label>
-     		     <input type="textarea" class="form-control" id="name">
+     		     <input type="textarea" class="form-control" name="name">
     		  </div>
  		    <div class="form-group">
     		   <label for="email">Email address:</label>
-    	       <input type="email" class="form-control" id="email">
+    	       <input type="email" class="form-control" name="email">
   			</div>
   			<div class="form-group">
       		   <label>Number: </label>
-      	 	   <input type="textarea" class="form-control" id="number" value ="xxx-xxx-xxxx">
+      	 	   <input type="textarea" class="form-control" name="number" value ="xxx-xxx-xxxx">
     	    </div>
     		<div class="form-group">
      		    <label>Adress: </label>
-      		    <input type="textarea" class="form-control" id="adress">
+      		    <input type="textarea" class="form-control" name="address">
     		</div>
    		    <div class="form-group">
       			<label>Major: </label>
-      			<input type="textarea" class="form-control" id="major">
+      			<input type="textarea" class="form-control" name="major">
    		   </div>
   			<div class="form-group">
     		   <label for="pwd">Password:</label>
-   		       <input type="password" class="form-control" id="pwd">
+   		       <input type="password" class="form-control" name="password">
   		   </div>
   		   <div class="checkbox">
     		   <label><input type="checkbox"> Remember me</label>
   		   </div>
-  		   <button type="submit" class="btn btn-default">Submit</button>
+         <div>
+         <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+          <label>Choose a file to upload: <input name="image" type="file" /></label>
+          </div>
+  		   <input type="submit" name="submit" class="submit" value="Post Your Project"/>
 		   </form>
       	</div>
       <div class="modal-footer">
