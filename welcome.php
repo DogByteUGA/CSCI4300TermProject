@@ -119,7 +119,7 @@
   		   </div>
          <div>
          <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-          <label>Choose a file to upload: <input name="image" type="file" /></label>
+          <label>Choose a file to upload: <input type="file" name="image" /></label>
           </div>
   		   <input type="submit" name="submit" class="submit" value="Post Your Project"/>
 		   </form>

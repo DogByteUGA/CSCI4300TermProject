@@ -8,6 +8,8 @@
       $password = "flaker";
       $dbname = "ajax01";
 
+
+
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
@@ -24,6 +26,7 @@ try {
      $location;
      $date;
       $type;
+      $pimage;
 
 //load all rows in the database
     while ($r = $q->fetch()){
@@ -33,13 +36,19 @@ try {
  	 $location = htmlspecialchars($r['project_location']); 
 	 $date =  htmlspecialchars($r['project_date']); 
  	 $type =  htmlspecialchars($r['project_type']);
+   $pimage =  htmlspecialchars($r['creator_image']);
+   $pimage = "uploads/" .$pimage;
+
+   echo $pimage;
+
+
 
     ?>
 
   <div class="row">
     <div class="col-md-4">
-      <img src="http://i.stack.imgur.com/7YCkq.jpg" class="img-responsive" alt="Cinque Terre"> <img src="http://www.femto.it/wp-content/uploads/2014/04/default-user-avatar.png" class="img-circle" alt="avatar">
-      <p class = "teamLabel"><strong>Creator:     <strong><? echo $creator?></p>
+      <img src= "http://i.stack.imgur.com/7YCkq.jpg" class="img-responsive" alt="Cinque Terre"> <img src =  <? echo $pimage?> class="img-circle" alt="avatar">
+      <p class = "teamLabel"><strong>Creator:     <strong>  <? echo $creator?></p>
       
 
     </div>

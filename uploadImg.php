@@ -19,11 +19,19 @@ user_image*/
 	$uaddress = (isset($_POST['address']) ?  htmlspecialchars($_POST['address']) : "");
 	$umajor = (isset($_POST['major']) ?  htmlspecialchars($_POST['major']) : "");
 	$upassword = (isset($_POST['password']) ?  htmlspecialchars($_POST['password']) : "");
+    $img = (isset($_POST['image']) ?  htmlspecialchars($_POST['image']) : "");
 
 //get user image
     $target = "uploads/";
-    $target = $target . basename( $_FILES['image']['name']); 
+    $target = $target . basename($_FILES['image']['name']); 
     $uimage = ($_FILES['image']['name']);
+
+    if(move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+    echo "The file ".  basename($_FILES['image']['name']). 
+    " has been uploaded";
+} else{
+    echo "There was an error uploading the file, please try again!";
+}
 
 
 try {
@@ -42,13 +50,9 @@ catch(PDOException $e)
     }
 
 
+
 //upload file to server
-if(move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
-    echo "The file ".  basename( $_FILES['image']['name']). 
-    " has been uploaded";
-} else{
-    echo "There was an error uploading the file, please try again!";
-}
+
 
 $conn = null;
 
