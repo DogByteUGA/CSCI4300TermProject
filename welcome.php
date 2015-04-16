@@ -67,6 +67,12 @@
   				background-color: #FFFFFF;
   				font-size: 120%;
 			}
+
+			.checkbox {
+  				color: white;
+  				font-size: 120%;
+			}
+
 		</style>
 	
 	</head>
@@ -92,7 +98,10 @@
 			<input type="text" name="userLogin" class="textfield" placeholder="Username">
 			<br><br>
 			<input type="text" name="userPassword" class="textfield" placeholder="Password">
-			<br><br>
+			<br>
+  		   <div class="checkbox">
+    		   <label><input type="checkbox"> Remember me</label>
+  		   </div>
 			<input type="submit" name="submit" class="submit" value="Sign In">
 			</form>
 		</div>
@@ -130,18 +139,16 @@
     		   <label for="pwd">Password:</label>
    		       <input type="password" class="form-control" name="password">
   		   </div>
-  		   <div class="checkbox">
-    		   <label><input type="checkbox"> Remember me</label>
-  		   </div>
          <div>
          <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
-          <label>Choose a file to upload: <input type="file" name="image" /></label>
+          <label>Choose a file to upload as avatar: <input type="file" name="image" /></label>
+          <br>
           </div>
 		   </form>
       	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary">Submit </button>
       </div>
     </div>
   </div>
