@@ -103,7 +103,7 @@
       	 	   <input type="textarea" class="form-control" name="number" value ="xxx-xxx-xxxx">
     	    </div>
     		<div class="form-group">
-     		    <label>Adress: </label>
+     		    <label>Address: </label>
       		    <input type="textarea" class="form-control" name="address">
     		</div>
    		    <div class="form-group">
@@ -126,7 +126,7 @@
       	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-primary">Save</button>
       </div>
     </div>
   </div>
