@@ -1,6 +1,12 @@
 # CSCI4300TermProject
 Term Project
 
+UPDATE (4.16.15):
+- Moved non-coding (and mostly old stuff) to non-coding branch
+- image links for term project:
+    potential logo: https://41.media.tumblr.com/671ba642b48ed5a3f92438cc796417ac/tumblr_nlx2p33nuR1tkwpyuo1_r1_400.png
+    welcome banner bg thing: https://41.media.tumblr.com/1cfb06a166f9021fb1eb8640e6611bf8/tumblr_nlx2p33nuR1tkwpyuo2_r1_540.jpg
+
 --Step 1: Design--
 
 By next Wednesday (April 1st), we should have the basic design of our pages completed.
