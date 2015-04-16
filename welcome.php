@@ -1,6 +1,4 @@
 <?php 
-
-
 ?>
 
 <html>
@@ -23,18 +21,28 @@
   			background-color: white;
 			}
 
+			#bannerarea{
+				margin-top: 10px;
+				margin-left: 10px;
+			}
+  			
 			h2 {
-			  color: white;
-  			font-weight: bold;
+			  	color: white;
+  				font-weight: bold;
+			}
+
+			h3{
+				margin-left: 10px;
+				font-weight: bold;
 			}
 
 			#signUp{
-  			background-color: #FFFFFF;
+  				background-color: #FFFFFF;
 			}
 
 			input[type="button"] {
-  			background-color: #FFFFFF;
-  			font-size: 120%;
+	  			background-color: #FFFFFF;
+  				font-size: 120%;
 			}
 
 			#login {
@@ -45,8 +53,14 @@
   				padding-left: 100px;
 			}
 
-			input[type="text"]{
+			button[type="button"]{
+				background-color: #470000;
+				border-color: black;
+			}
 
+			button[type="button"]:hover{
+				background-color: #470000;
+				border-color: black;
 			}
 
 			input[type="submit"] {
@@ -60,7 +74,7 @@
 		<div id="bannerarea">
 			<img src="https://41.media.tumblr.com/671ba642b48ed5a3f92438cc796417ac/tumblr_nlx2p33nuR1tkwpyuo1_r1_400.png" alt="banner logo"> 
 			<br>
-		</div>
+		
 
 		<h1>Get started on your projects today!</h1>
 
@@ -69,6 +83,8 @@
 		</button>
 
 		<br>
+		<br>
+		</div>
 
 		<div id="login">
 			<h2>Already have an account? Welcome back!</h2>
@@ -121,12 +137,11 @@
          <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
           <label>Choose a file to upload: <input type="file" name="image" /></label>
           </div>
-  		   <input type="submit" name="submit" class="submit" value="Post Your Project"/>
 		   </form>
       	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save</button>
+        <button type="button" class="btn btn-primary">Submit</button>
       </div>
     </div>
   </div>
