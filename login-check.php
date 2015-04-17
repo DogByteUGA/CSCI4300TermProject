@@ -141,7 +141,7 @@ else {
         		 <h4 class="modal-title" id="myModalLabel">Create Account</h4>
       			</div>
       		<div class="modal-body">
-        	  <form role="form" enctype="multipart/form-data" action="uploadImg.php" method="POST">
+        	  <form role="form" enctype="multipart/form-data" action="./uploadImg.php" method="POST">
    			  <div class="form-group">
       		     <label>Name: </label>
      		     <input type="textarea" class="form-control" name="name">
