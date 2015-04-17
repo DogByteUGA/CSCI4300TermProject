@@ -89,14 +89,14 @@
 			<br>
 			<br>	
 		</div>
-		
+
 		<div id="login">
 			<h2>Already have an account? Welcome back!</h2>
 			<form action = "./login-check.php" method ="post" accept-charset="utf-8">
 				<input type="text" name="username" class="textfield" placeholder="Username" maxlength="20">
 				<br>
 				<br>
-				<input type="text" name="password" class="textfield" placeholder="Password" maxlength="20">
+				<input type="password" name="password" class="textfield" placeholder="Password" maxlength="20">
 				<br>
   		   		
   		   		<div class="checkbox">
