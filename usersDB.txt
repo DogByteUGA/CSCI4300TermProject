@@ -1,0 +1,29 @@
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `ajax01` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `ajax01` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `ajax01`.`users` (
+  `user_id` INT(10) NOT NULL,
+  `user_name` CHAR(50) NULL,
+  `user_email` VARCHAR(45) NULL,
+  `user_number` VARCHAR(15) NULL,
+  `user_address` VARCHAR(150) NULL,
+  `user_major` VARCHAR(45) NULL,
+  `user_password` VARCHAR(45) NULL,
+  `user_image` VARCHAR(250) NULL,
+  PRIMARY KEY (`user_id`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
