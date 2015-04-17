@@ -3,8 +3,8 @@
 $host="localhost"; // Host name 
 $username=""; // Mysql username 
 $password=""; // Mysql password 
-$db_name="test"; // Database name 
-$tbl_name="members"; // Table name 
+$db_name="ajax01"; // Database name 
+$tbl_name="users"; // Table name 
 
 // Connect to server and select databse.
 mysql_connect("$host", "$username", "$password") or die("cannot connect"); 
