@@ -14,7 +14,7 @@ mysql_select_db("$db_name") or die("cannot select DB");
 $myusername=$_POST['username']; 
 $mypassword=$_POST['password']; 
 
-$sql="SELECT * FROM $tbl_name WHERE username='$myusername' and password='$mypassword'";
+$sql="SELECT * FROM $tbl_name WHERE user_name='$myusername' and user_password='$mypassword'";
 
 $result=mysql_query($sql);
 
