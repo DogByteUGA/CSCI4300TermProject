@@ -1,26 +1,19 @@
 <?php
-
 $host="127.0.0.1:3306"; // Host name 
 $username="root"; // Mysql username 
 $password=""; // Mysql password 
 $db_name="ajax01"; // Database name 
 $tbl_name="users"; // Table name 
-
 // Connect to server and select databse.
 mysql_connect("$host", "$username", "$password") or die("cannot connect"); 
 mysql_select_db("$db_name") or die("cannot select DB");
-
 // username and password sent from form 
 $myusername=$_POST['username']; 
 $mypassword=$_POST['password']; 
-
 $sql="SELECT * FROM $tbl_name WHERE user_name='$myusername' and user_password='$mypassword'";
-
 $result=mysql_query($sql);
-
 // Mysql_num_row is counting table row
 $count=mysql_num_rows($result);
-
 // If result matched $myusername and $mypassword, table row must be 1 row
 if($count==1){
 	header("location:project-search.php");
@@ -28,7 +21,6 @@ if($count==1){
 else {
 	
 }
-
 ?>
 
 <html>
@@ -43,19 +35,15 @@ else {
   			font-size: 12pt;
   			font-family: "Verdana", "Geneva", sans-serif;
 		}
-
 		p {
 			color: yellow;
 		}
-
 		h1{
   			margin-top: 0em;
 		}
-
 		body {
   			background-color: white;
 		}
-
 		#bannerarea{
 			margin-top: 10px;
 			margin-left: 10px;
@@ -65,21 +53,17 @@ else {
 		  	color: white;
   			font-weight: bold;
 		}
-
 		h3{
 			margin-left: 10px;
 			font-weight: bold;
 		}
-
 		#signUp{
   			background-color: #FFFFFF;
 		}
-
 		input[type="button"] {
 	  		background-color: #FFFFFF;
   			font-size: 120%;
 		}
-
 		#login {
   			background-image: url("https://41.media.tumblr.com/1cfb06a166f9021fb1eb8640e6611bf8/tumblr_nlx2p33nuR1tkwpyuo2_r1_540.jpg");
   			padding-bottom: 100px;
@@ -87,13 +71,19 @@ else {
   			padding-top: 100px;
   			padding-left: 100px;
 		}
-
 		button[type="button"]{
 			background-color: #470000;
 			border-color: black;
 		}
-
 		button[type="button"]:hover{
+			background-color: #470000;
+			border-color: black;
+		}
+		button[type="submit"]{
+			background-color: #470000;
+			border-color: black;
+		}
+		button[type="submit"]:hover{
 			background-color: #470000;
 			border-color: black;
 		}
@@ -102,12 +92,10 @@ else {
 			background-color: #FFFFFF;
 			font-size: 120%;
 		}
-
 		.checkbox {
 			color: white;
   			font-size: 120%;
 		}
-
 		</style>
 	
 	</head>
@@ -187,7 +175,7 @@ else {
       	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit </button>
+        <button type="submit" class="btn btn-primary">Submit </button>
       </div>
     </div>
   </div>
@@ -197,7 +185,3 @@ else {
 
 	</body>
 </html>
-
-<?php
-
-?>
