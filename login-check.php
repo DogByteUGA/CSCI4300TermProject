@@ -31,10 +31,6 @@ else {
 
 ?>
 
-<?php 
-
-?>
-
 <html>
 	<head>
 	<meta charset="utf-8" />
@@ -134,7 +130,7 @@ else {
 				<input type="text" name="username" class="textfield" placeholder="Username" maxlength="20">
 				<br>
 				<br>
-				<input type="text" name="password" class="textfield" placeholder="Password" maxlength="20">
+				<input type="password" name="password" class="textfield" placeholder="Password" maxlength="20">
 				<br>
   		   		
   		   		<div class="checkbox">
