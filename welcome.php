@@ -149,12 +149,13 @@
           <label>Choose a file to upload as avatar: <input type="file" name="image" /></label>
           <br>
           </div>
-		   </form>
+		   
       	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit </button>
+        <button type="submit" class="btn btn-primary">Submit </button>
       </div>
+      </form>
     </div>
   </div>
 </div>

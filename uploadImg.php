@@ -1,7 +1,7 @@
 <?php
-      $servername = "127.0.0.1";
+      $servername = "127.0.0.1:3306";
       $username = "root";
-      $password = "flaker";
+      $password = "";
       $dbname = "ajax01";
 /*TABLE IS AS FOLLOWS(USER ID IS AUTOMATIC)
 user_id
@@ -55,5 +55,8 @@ catch(PDOException $e)
 
 
 $conn = null;
+
+
+header("Location:user-profile.php");
 
 ?>
