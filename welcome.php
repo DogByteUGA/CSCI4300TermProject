@@ -1,7 +1,3 @@
-<?php 
-
-?>
-
 <html>
 	<head>
 	<meta charset="utf-8" />
@@ -14,15 +10,15 @@
   			font-size: 12pt;
   			font-family: "Verdana", "Geneva", sans-serif;
 		}
-
+		p {
+			color: yellow;
+		}
 		h1{
   			margin-top: 0em;
 		}
-
 		body {
   			background-color: white;
 		}
-
 		#bannerarea{
 			margin-top: 10px;
 			margin-left: 10px;
@@ -32,21 +28,17 @@
 		  	color: white;
   			font-weight: bold;
 		}
-
 		h3{
 			margin-left: 10px;
 			font-weight: bold;
 		}
-
 		#signUp{
   			background-color: #FFFFFF;
 		}
-
 		input[type="button"] {
 	  		background-color: #FFFFFF;
   			font-size: 120%;
 		}
-
 		#login {
   			background-image: url("https://41.media.tumblr.com/1cfb06a166f9021fb1eb8640e6611bf8/tumblr_nlx2p33nuR1tkwpyuo2_r1_540.jpg");
   			padding-bottom: 100px;
@@ -54,13 +46,19 @@
   			padding-top: 100px;
   			padding-left: 100px;
 		}
-
 		button[type="button"]{
 			background-color: #470000;
 			border-color: black;
 		}
-
 		button[type="button"]:hover{
+			background-color: #470000;
+			border-color: black;
+		}
+		button[type="submit"]{
+			background-color: #470000;
+			border-color: black;
+		}
+		button[type="submit"]:hover{
 			background-color: #470000;
 			border-color: black;
 		}
@@ -69,12 +67,10 @@
 			background-color: #FFFFFF;
 			font-size: 120%;
 		}
-
 		.checkbox {
 			color: white;
   			font-size: 120%;
 		}
-
 		</style>
 	
 	</head>
@@ -89,7 +85,7 @@
 			<br>
 			<br>	
 		</div>
-
+		
 		<div id="login">
 			<h2>Already have an account? Welcome back!</h2>
 			<form action = "./login-check.php" method ="post" accept-charset="utf-8">
@@ -119,7 +115,7 @@
         		 <h4 class="modal-title" id="myModalLabel">Create Account</h4>
       			</div>
       		<div class="modal-body">
-        	  <form role="form" enctype="multipart/form-data" action="uploadImg.php" method="POST">
+        	  <form role="form" enctype="multipart/form-data" action="./uploadImg.php" method="POST">
    			  <div class="form-group">
       		     <label>Name: </label>
      		     <input type="textarea" class="form-control" name="name">
@@ -149,13 +145,12 @@
           <label>Choose a file to upload as avatar: <input type="file" name="image" /></label>
           <br>
           </div>
-		   
+		   </form>
       	</div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary">Submit </button>
       </div>
-      </form>
     </div>
   </div>
 </div>
@@ -164,7 +159,3 @@
 
 	</body>
 </html>
-
-<?php
-
-?>
