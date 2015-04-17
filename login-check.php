@@ -45,7 +45,7 @@ else {
 		}
 
 		p {
-			color: red;
+			color: yellow;
 		}
 
 		h1{
