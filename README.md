@@ -1,6 +1,10 @@
 # CSCI4300TermProject
 Term Project
 
+UPDATE (4.17.15):
+- http://stackoverflow.com/questions/6261163/how-to-automatically-generate-a-page-after-user-fills-a-form-via-php
+- (link to how to make html file from php)
+
 UPDATE (4.16.15):
 - Moved non-coding (and mostly old stuff) to non-coding branch
 - image links for term project:
