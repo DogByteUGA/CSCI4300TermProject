@@ -33,6 +33,13 @@
 			margin-left: 10px;
 			font-weight: bold;
 		}
+
+		h4{
+			color: darkred;
+			margin-left: 10px;
+			font-style: italic;
+		}
+
 		#signUp{
   			background-color: #FFFFFF;
 		}
@@ -84,34 +91,6 @@
 			<br>	
 		</div>
 		
-		<div id="login">
-			<h2>Already have an account? Welcome back!</h2>
-			<form action = "./welcome.php" method ="post" accept-charset="utf-8">
-				<?php
-					if(isset($_POST['userLogin'])||isset($_POST['userPassword'])){
-				?>
-					<p>Error. Invalid username or password.</p>
-				<?php
-					}
-				?>
-				<input type="text" name="userLogin" class="textfield" placeholder="Username" maxlength="20">
-				<br>
-				<br>
-				<input type="password" name="userPassword" class="textfield" placeholder="Password" maxlength="20">
-				<br>
-  		   		
-  		   		<div class="checkbox">
-    		   		<label><input type="checkbox"> Remember me</label>
-  		   		</div>
-
-				<input type="submit" id="signin" name="submit"  class="btn btn-primary btn-lg" value="Sign In">
-		
-			</form>
-		
-		</div>
-
-
-
  		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   		<div class="modal-dialog">
     		<div class="modal-content">
@@ -125,6 +104,10 @@
       		     <label>Name: </label>
      		     <input type="textarea" class="form-control" name="name">
     		  </div>
+    		<div class="form-group">
+    		   <label for="username">Username:</label>
+    	       <input type="textarea" class="form-control" name="username">
+  			</div>
  		    <div class="form-group">
     		   <label for="email">Email address:</label>
     	       <input type="email" class="form-control" name="email">
@@ -167,7 +150,7 @@ $template = <<<EOD
 <!DOCTYPE html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>{name}'s Profile</title>
+	<title>{username}</title>
 	<style>
         * {
   			font-size: 12pt;
@@ -180,6 +163,7 @@ $template = <<<EOD
 </head>
 <body>
 	<img src="https://41.media.tumblr.com/671ba642b48ed5a3f92438cc796417ac/tumblr_nlx2p33nuR1tkwpyuo1_r1_400.png" alt="banner logo"> 
+	<p>{username}</p>
 	<p>{image}</p>
 	<ul>Name: {name}</ul>
 	<ul>Email: {email} </ul>
@@ -192,15 +176,16 @@ $template = <<<EOD
 EOD;
 
 //handle the posted form
-if(isset($_POST['name'])){
+if(isset($_POST['username'])){
     //replace the areas of the template with the posted values
-    $page = str_replace('{name}',htmlentities($_POST['name']),$template);
+    $page = str_replace('{username}',htmlentities($_POST['username']),$template);
+    $page = str_replace('{name}',htmlentities($_POST['name']),$page);
     $page = str_replace('{email}',htmlentities($_POST['email']),$page);
     $page = str_replace('{number}',htmlentities($_POST['number']),$page);
     $page = str_replace('{address}',htmlentities($_POST['address']),$page);
     $page = str_replace('{major}',htmlentities($_POST['major']),$page);
     //create a name for the new page
-    $pagename = ($_POST['name']).'.php';
+    $pagename = ($_POST['username']).'.php';
 
     //db connect & select
     $db=mysql_connect('127.0.0.1','','');
@@ -210,7 +195,8 @@ if(isset($_POST['name'])){
     $result = mysql_query('SELECT pagename from yourtable WHERE url="'.mysql_real_escape_string($pagename).'"');
 
         //inset new page into db
-        mysql_query('INSERT into yourtable (`name`,`email`,`number`,`address`,`major`,`url`)VALUES("",
+        mysql_query('INSERT into yourtable (`username`,`name`,`email`,`number`,`address`,`major`,`url`)VALUES("",
+        "'.mysql_real_escape_string(htmlentities($_POST['username'])).'",
         "'.mysql_real_escape_string(htmlentities($_POST['name'])).'",
         "'.mysql_real_escape_string(htmlentities($_POST['email'])).'",
         "'.mysql_real_escape_string(htmlentities($_POST['number'])).'",
@@ -221,12 +207,38 @@ if(isset($_POST['name'])){
         file_put_contents('./users/'.$pagename,$page);
         //make a notice to show the user
         $notice = '<p>New Page created: <b>./users/'.$pagename.'</b></p>';
-}
-?>
+		}
+		?>
 
-<?php //notify if successful making user profile
-//if(isset($notice)){echo $notice;} 
-?>
+		<?php //notify if successful making user profile
+			if(isset($notice)){
+		?>
+			<h4>Succesfully registered! Please sign into your account to get started.</h4>
+		<?php
+		} 
+		?>
+	
+		<div id="login">
+			<h2>Already have an account? Welcome back!</h2>
+			<form action = "./welcome.php" method ="post" accept-charset="utf-8">
+				<?php
+					if(isset($_POST['userLogin'])||isset($_POST['userPassword'])){
+				?>
+					<p>Error. Invalid username or password.</p>
+				<?php
+					}
+				?>
+				<input type="text" name="userLogin" class="textfield" placeholder="Username" maxlength="20">
+				<br>
+				<br>
+				<input type="password" name="userPassword" class="textfield" placeholder="Password" maxlength="20">
+				<br>
+  		   		<div class="checkbox">
+    		   		<label><input type="checkbox"> Remember me</label>
+  		   		</div>
+				<input type="submit" id="signin" name="submit"  class="btn btn-primary btn-lg" value="Sign In">
+			</form>
+		</div>
 
 		<h3>Property of DogByte</h3>
 	</body>
