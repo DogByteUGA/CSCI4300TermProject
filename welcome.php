@@ -88,16 +88,16 @@
 			<h2>Already have an account? Welcome back!</h2>
 			<form action = "./welcome.php" method ="post" accept-charset="utf-8">
 				<?php
-					if(isset($_POST['name'])||isset($_POST['password'])){
+					if(isset($_POST['userLogin'])||isset($_POST['userPassword'])){
 				?>
 					<p>Error. Invalid username or password.</p>
 				<?php
 					}
 				?>
-				<input type="text" name="username" class="textfield" placeholder="Username" maxlength="20">
+				<input type="text" name="userLogin" class="textfield" placeholder="Username" maxlength="20">
 				<br>
 				<br>
-				<input type="password" name="password" class="textfield" placeholder="Password" maxlength="20">
+				<input type="password" name="userPassword" class="textfield" placeholder="Password" maxlength="20">
 				<br>
   		   		
   		   		<div class="checkbox">
@@ -178,7 +178,6 @@ $template = <<<EOD
 		}
 	</style>
 </head>
-
 <body>
 	<img src="https://41.media.tumblr.com/671ba642b48ed5a3f92438cc796417ac/tumblr_nlx2p33nuR1tkwpyuo1_r1_400.png" alt="banner logo"> 
 	<p>{image}</p>
@@ -187,9 +186,7 @@ $template = <<<EOD
 	<ul>Phone Number: {number} </ul>
 	<ul>Address: {address} </ul>
 	<ul>Major: {major} </ul>
-
 	<h3>Current Projects:</h3>
-
 </body>
 </html>
 EOD;
@@ -228,7 +225,7 @@ if(isset($_POST['name'])){
 ?>
 
 <?php //notify if successful making user profile
-if(isset($notice)){echo $notice;} 
+//if(isset($notice)){echo $notice;} 
 ?>
 
 		<h3>Property of DogByte</h3>
