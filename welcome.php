@@ -155,6 +155,24 @@
   </div>
 </div>
 
+<script>
+function submitLogin() {
+    $.ajax({
+        url:"user-profile.php",
+        type:'POST',
+        dataType:"json",
+        data: $("#login-form").serialize()
+    }).done(function(data){
+        //do something
+    });
+}
+
+
+$('#login').click(function(){
+    submitLogin();
+});
+</script>
+
 		<h3>Property of DogByte</h3>
 
 	</body>
