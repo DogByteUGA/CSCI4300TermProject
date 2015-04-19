@@ -2,9 +2,10 @@
 	<head>
 	<meta charset="utf-8" />
 		<title>UGACreate</title>
-       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="actions.js"></script>
         
         <style>
         * {
@@ -100,33 +101,40 @@
       			</div>
       		<div class="modal-body">
         	  <form id="login-form" role="form" enctype="multipart/form-data" action="./welcome.php" method="POST">
-   			  <div class="form-group">
+   			  <div class="form-group" id="name">
       		     <label>Name: </label>
-     		     <input type="textarea" class="form-control" name="name">
+     		     <input type="text" class="form-control" name="name" id="nameA" onchange="nameFix()">
+     		     <span class="glyphicon glyphicon-ok form-control-feedback" id="nameIcon"></span>
     		  </div>
-    		<div class="form-group">
+    		<div class="form-group" id="user">
     		   <label for="username">Username:</label>
-    	       <input type="textarea" class="form-control" name="username">
+    	       <input type="textarea" class="form-control" name="username" id="unameA" onchange = "unameFix()">
+    	       <span class="glyphicon glyphicon-ok form-control-feedback" id="unameIcon"></span>
   			</div>
- 		    <div class="form-group">
+ 		    <div class="form-group" id="email">
     		   <label for="email">Email address:</label>
-    	       <input type="email" class="form-control" name="email">
+    	       <input type="email" class="form-control" name="email" id="emailA" onchange="emailFix()">
+    	       <span class="glyphicon glyphicon-ok form-control-feedback" id="emailIcon"></span>
   			</div>
-  			<div class="form-group">
+  			<div class="form-group" id="phone">
       		   <label>Number: </label>
-      	 	   <input type="textarea" class="form-control" name="number" value ="xxx-xxx-xxxx">
+      	 	   <input type="text" class="form-control" id="tele" name="number" value ="xxx-xxx-xxxx" onchange="teleFix()">
+      	 	   <span class="glyphicon glyphicon-ok form-control-feedback" id="numberIcon"></span>
     	    </div>
-    		<div class="form-group">
+    		<div class="form-group" id="address">
      		    <label>Address: </label>
-      		    <input type="textarea" class="form-control" name="address">
+      		    <input type="textarea" class="form-control" name="address" id="ad" onchange = "adFix()">
+      		    <span class="glyphicon glyphicon-ok form-control-feedback" id="addressIcon"></span>
     		</div>
-   		    <div class="form-group">
+   		    <div class="form-group" id="major">
       			<label>Major: </label>
-      			<input type="textarea" class="form-control" name="major">
+      			<input type="textarea" class="form-control" name="major" id="majorA" onchange="majorChange()">
+      			<span class="glyphicon glyphicon-ok form-control-feedback" id="majorIcon"></span>
    		   </div>
-  			<div class="form-group">
+  			<div class="form-group" id="pwd">
     		   <label for="pwd">Password:</label>
-   		       <input type="password" class="form-control" name="password">
+   		       <input type="password" class="form-control" name="password" id="pwdA" onchange="pwdChange">
+   		       <span class="glyphicon glyphicon-ok form-control-feedback" id="pwdIcon"></span>
   		   </div>
          <div>
          <input type="hidden" name="MAX_FILE_SIZE" value="100000" />
