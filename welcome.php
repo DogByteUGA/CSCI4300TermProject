@@ -282,38 +282,30 @@ if(isset($_POST['username'])){
     //create a name for the new page
     $pagename = ($_POST['username']).'.php';
 
-    //db connect & select
-    $db=mysql_connect('127.0.0.1','','');
-    mysql_select_db('ajax01');
-
     //check if page already exists
     $result = mysql_query('SELECT user_url from users WHERE user_url="'.mysql_real_escape_string($pagename).'"');
 
-    if($result){
-    	?>
-    	<p>Username already taken. Please try again.</p>
-    	<?php
-    	break;
-    }
+  $link = mysqli_connect("localhost", "", "", "ajax01");
  
-    //$myuserid = mysql_real_escape_string($db,"1");
-    $myusername = mysql_real_escape_string(htmlentities($_POST['username']));
-    $myname = mysql_real_escape_string(htmlentities($_POST['name']));
-    $myemail = mysql_real_escape_string(htmlentities($_POST['email']));
-    $mynumber = mysql_real_escape_string(htmlentities($_POST['number']));
-    $myaddress = mysql_real_escape_string(htmlentities($_POST['address']));
-    $mymajor = mysql_real_escape_string(htmlentities($_POST['major']));
+// Check connection
+if($link === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+ 
+// Attempt insert query execution
+$sql = "INSERT INTO `ajax01`.`users` (`user_id`, `user_username`, `user_name`, `user_email`, `user_number`, `user_address`, `user_major`, `user_password`, `user_image`, `user_url`) 
+VALUES ('', '".$_POST['username']."', '".$_POST['name']."', '".$_POST['email']."', '".$_POST['number']."', '".$_POST['address']."', '".$_POST['major']."', '".$_POST['password']."', NULL, '".$pagename."');";
 
-        //inset new page into db
-         $update = "INSERT into `users` (`user_id`,`user_username`,`user_name`,`user_email`,`user_number`,`user_address`,`user_major`,`user_url`,)VALUES
-        	($myusername,$myname,$myemail,$mynumber,$myaddress,$mymajor,$pagename)";
+/*
+if(mysqli_query($link, $sql)){ // for testing
+    echo "Records added successfully.";
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+ */
 
-        if(mysql_query(htmlentities($update))){
-        	echo "it worked";
-        }
-        else{
-        	echo "nope";
-        }
+// Close connection
+mysqli_close($link);
 
         //put the created content to file
         file_put_contents('./users/'.$pagename,$page);
