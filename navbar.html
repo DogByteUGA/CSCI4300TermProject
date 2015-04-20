@@ -1,69 +1,69 @@
+<?php 
+   include '../nav-bar.html';
+?>
 <!DOCTYPE html>
-<html>
-	<head>
-	   <title>UGA CREATE</title>
-	   <meta charset="utf-8" />
-  	   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  	    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-
-  	    <style>
-  	     .col-md-4{
-  	      	border: 1px solid gray;
-  	      	height: 200px;
-  	      	padding: 0px;
-  	      }
-  	      .col-md-8{
-  	      	border: 1px solid gray;
-  	      	height: 220px;
-  	      }
-  	      .img-circle{
-    	     position: absolute;
-    	     top: 35%;
-    	     left: 35%;
-    	     width: 25%;
-    	     background-color: white;
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{username}'s Profile</title>
+	<style>
+        * {
+  			font-size: 12pt;
+  			font-family: "Verdana", "Geneva", sans-serif;
 		}
-		.teamLabel{
-			 position: absolute;
-			 color: black;
-			 font-size: 15px;
-    	     top: 78%;
-    	     left: 10%;
-    	    
-
+		h3{
+			margin-left: 10px;
 		}
-		.teamLabel > .img-circle{
-  	      	border: 1px solid gray;
-  	      	height: 200px;
-  	      	padding: 0px;
-  	      }
+		#bg{
+			background-image: url("https://41.media.tumblr.com/1cfb06a166f9021fb1eb8640e6611bf8/tumblr_nlx2p33nuR1tkwpyuo2_r1_540.jpg");
+  			margin-top: 300px;
+  			padding-bottom: 300px;
+		}
+		#description{
+			font-size: 12pt;
+			font-family: "Verdana", "Geneva", sans-serif;
+			position: relative;
+			float: left;
+			padding-right: 200px;
+			margin-top: 50px;
+		}
+		#projects{
+			position: relative;
+			float: left;
+			margin-top: 25px;
+		}
+		#avatar{
+			position: relative;
+			float: left;
+		}
+		input[type="submit"] {
+			background-color: #FFFFFF;
+			font-size: 120%;
+		}
+	</style>
+</head>
 
-  	    
+<body>
+	<div id="avatar">
+		<ul><img src="https://41.media.tumblr.com/9f93f36af014846dc6046e2c2a920473/tumblr_nlx2p33nuR1tkwpyuo3_r1_250.jpg"></ul>
+	</div>
+	<div id="description">
+		<ul><b>Name:</b> {name}</ul>
+		<ul><b>Email:</b> {email} </ul>
+		<ul><b>Phone Number:</b> {number} </ul>
+		<ul><b>Address:</b> {address} </ul>
+		<ul><b>Major:</b> {major} </ul>
+	</div>
+	<div id="projects">
+		<h3>Current Projects:</h3>
+			<ul>
+				<form action="../project-create.php">
+					<input type="submit" value="Create a new project!">
+					</input>
+				</form>
+			</ul>
+	</div>
+	<div id="bg">
+	</div>
 
-  	      </style>
-
-
-
-	</head>
-   <body>
-      <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-              <a class="navbar-brand" href="#">UGA CREATE</a>
-            </div>
-          <div>
-         <ul class="nav navbar-nav">
-           <li class="active"><a href=". ./user/template.php">My Profile</a></li>
-           <li><a href=". ./project-search.php">Project Search</a></li>
-         </ul>
-         <ul class="nav navbar-nav navbar-right">
-        <li><a href=". ./welcome 3.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-      </ul>
-       </div>
-      </div>
-     </nav>
-  
-   
-
-  
+</body>
+</html>
