@@ -3,7 +3,7 @@
 
       $servername = "127.0.0.1";
       $username = "root";
-      $password = "flaker";
+      $password = "";
       $dbname = "ajax01";
 
 /*database for projects table is set up as follows
@@ -27,7 +27,7 @@ project_type = computer science
 	$pdate = (isset($_POST['pduedate']) ?  htmlspecialchars($_POST['pduedate']) : "");
 	$plocation = (isset($_POST['plocation']) ?  htmlspecialchars($_POST['plocation']) : "");
 	$ptype = (isset($_POST['tag']) ?  htmlspecialchars($_POST['tag']) : "");
-  $pimage;
+  $pimage = NULL;
 
   //get the image from user table with same name as project creator
 
@@ -70,6 +70,7 @@ try {
     // use exec() because no results are returned
     $conn->exec($sql);
     echo "New record created successfully";
+    header("location:project-search.php");
     }
 catch(PDOException $e)
     {
