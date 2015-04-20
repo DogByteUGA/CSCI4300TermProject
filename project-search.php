@@ -1,81 +1,84 @@
 <?php 
-   include 'header.html';
-
 //Connect to db
 
       $servername = "127.0.0.1";
       $username = "root";
-      $password = "flaker";
+      $password = "";
       $dbname = "ajax01";
 
+/*database for projects table is set up as follows
+project_id: =1
+project_title = Project two
+creator_name = Ryan Reynolds
+project_description = This is description
+project_date = 2012-04-14
+project_location = My house
+project_type = computer science
+*/
 
+// Create connection
 
+//right now only one project type can be chosen
+
+	$pid = 19;
+	$ptitle = (isset($_POST['ptitle']) ?  htmlspecialchars($_POST['ptitle']) : "");
+	$cname = (isset($_POST['creatorName']) ?  htmlspecialchars($_POST['creatorName']) : "");
+	$pdescription = (isset($_POST['pdescription']) ?  htmlspecialchars($_POST['pdescription']) : "");
+	$pdate = (isset($_POST['pduedate']) ?  htmlspecialchars($_POST['pduedate']) : "");
+	$plocation = (isset($_POST['plocation']) ?  htmlspecialchars($_POST['plocation']) : "");
+	$ptype = (isset($_POST['tag']) ?  htmlspecialchars($_POST['tag']) : "");
+  $pimage = NULL;
+
+  //get the image from user table with same name as project creator
+
+  try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // set the PDO error mode to exception
+    $sql = "SELECT user_image FROM users
+            JOIN projects p ON p.creator_name = users.user_name;";
+
+            ///to get right response say WHERE p.creator_name= $cname
+  // perform query    
+    $q = $conn->query($sql);
+    //$q->setFetchMode(PDO::cubrid_fetch_object(result));
+     $q->setFetchMode(PDO::FETCH_ASSOC);
+
+    echo "New record created successfully";
+
+     while ($r = $q->fetch()){
+      //$pimage = $r; 
+       $pimage =  htmlspecialchars($r['user_image']);
+
+     }
+
+   }
+
+    catch(PDOException $e)
+    {
+    echo $sql . "<br>" . $e->getMessage();
+    }
+    $conn = null;
+
+//add the user image to the project table image
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
-    $sql = "SELECT * FROM projects
-			ORDER BY project_id;";
-	// perform query		
-    $q = $conn->query($sql);
-    $q->setFetchMode(PDO::FETCH_ASSOC);
-
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "INSERT INTO projects (project_title,creator_name, project_description, project_date, 
+      project_location, project_type,creator_image) 
+      VALUES ('$ptitle', '$cname', '$pdescription', '$pdate','$plocation', '$ptype','$pimage')";
+    // use exec() because no results are returned
+    $conn->exec($sql);
     echo "New record created successfully";
-     $creator;
-     $title;
-     $description;
-     $location;
-     $date;
-      $type;
-      $pimage;
-
-//load all rows in the database
-    while ($r = $q->fetch()){
-	 $creator = htmlspecialchars($r['creator_name']); 
-	 $title =  htmlspecialchars($r['project_title']); 
- 	 $description =  htmlspecialchars($r['project_description']);
- 	 $location = htmlspecialchars($r['project_location']); 
-	 $date =  htmlspecialchars($r['project_date']); 
- 	 $type =  htmlspecialchars($r['project_type']);
-   $pimage =  htmlspecialchars($r['creator_image']);
-   $pimage = "uploads/" .$pimage;
-
-   echo $pimage;
-
-
-
-    ?>
-
-  <div class="row">
-    <div class="col-md-4">
-      <img src= "http://i.stack.imgur.com/7YCkq.jpg" class="img-responsive" alt="Cinque Terre"> <img src =  <? echo $pimage?> class="img-circle" alt="avatar">
-      <p class = "teamLabel"><strong>Creator:     <strong>  <? echo $creator?></p>
-      
-
-    </div>
-    <div class="col-md-8">
-            <h5><strong>Title: </strong><? echo $title?></h5>
-            <h5><strong>Description: </strong><? echo $description?></h5>
-            <h5><strong>Type: </strong><? echo $type?></h5>
-            <h5><strong>Location: </strong><? echo $location?></h5>
-            <h5><strong>Date Posted: </strong><? echo $date?></h5>
-    </div>
-  </div>
-
-<?php } }
-
+    header("location:project-search.php");
+    }
 catch(PDOException $e)
     {
     echo $sql . "<br>" . $e->getMessage();
     }
 
+
 $conn = null;
-
 ?>
 
-</div>
 
-</body>
-</html>
-<?php
-
-?>
