@@ -296,13 +296,12 @@ if($link === false){
 $sql = "INSERT INTO `ajax01`.`users` (`user_id`, `user_username`, `user_name`, `user_email`, `user_number`, `user_address`, `user_major`, `user_password`, `user_image`, `user_url`) 
 VALUES ('', '".$_POST['username']."', '".$_POST['name']."', '".$_POST['email']."', '".$_POST['number']."', '".$_POST['address']."', '".$_POST['major']."', '".$_POST['password']."', NULL, '".$pagename."');";
 
-/*
-if(mysqli_query($link, $sql)){ // for testing
-    echo "Records added successfully.";
+
+if(mysqli_query($link, $sql)){ 
+    //echo "Records added successfully."; // for testing
 } else{
-    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+   //echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
- */
 
 // Close connection
 mysqli_close($link);
