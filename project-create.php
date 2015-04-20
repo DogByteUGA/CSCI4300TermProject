@@ -24,23 +24,46 @@
 			<h2>Your Name:</h2>
 				<input type="textarea" name="creatorName" class="textfield" size="50" placeholder="My Name"/>
 			<br>
+			
+			<script type = "text/javascript">
+				function mapToggle()
+				{
+					if (document.getElementById('None').checked)
+					{
+						document.getElementById('MapFrame').style.display = 'none';
+					}
+					else
+					{
+						document.getElementById('MapFrame').style.display = 'block';
+					}
+				}
+			</script>
+				
 			<h2>Location (if applicable):</h2>
-				<input type="radio" name="plocation" value="None" checked>No Location (Online)
-				<input type="radio" name="plocation" value="Place">Google Maps API
+				<input type="radio" name="plocation" id="None" onclick="javascript:mapToggle();" value="None" checked>No Location (Online)
+				<input type="radio" name="plocation" id="Maps" onclick="javascript:mapToggle();" value="Place">Specify a Location
+					<iframe
+					id="MapFrame"
+					width="600" 
+					height="450" 
+					frameborder="0" style="border:0";
+					src="https://www.google.com/maps/embed/v1/view?zoom=16&center=33.9480%2C-83.3773&key=AIzaSyD3s4rEzLhoSGV-bAKYwP4wgqm6MUajxIY">
+					</iframe>
+				
 			<h2>Tags (select at least one): </h2>
 				<input type="checkbox" name="tag" value="CompSci"/>Computer Science
 				<br>
-				<input type = "checkbox" name="tag" value="Music"/>Animation
+				<input type = "checkbox" name="tag" value="Animation"/>Animation
 				<br>
 				<input type="checkbox" name="tag" value="CompSci"/>Video
 				<br>
-				<input type = "checkbox" name="tag" value="Music"/>Audio
+				<input type = "checkbox" name="tag" value="Audio"/>Audio
 				<br>
-				<input type="checkbox" name="tag" value="CompSci"/>Music
+				<input type="checkbox" name="tag" value="Music"/>Music
 				<br>
-				<input type = "checkbox" name="tag" value="Music"/>Gaming
+				<input type = "checkbox" name="tag" value="Gaming"/>Gaming
 				<br>
-				<input type="checkbox" name="tag" value="CompSci"/>Other
+				<input type="checkbox" name="tag" value="Other"/>Other
 				<br>
 				<br>
 			<input type="submit" name="submit" class="submit" value="Post Your Project"/>
