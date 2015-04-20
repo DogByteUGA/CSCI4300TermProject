@@ -65,7 +65,7 @@ try {
 	
 	
 
-  <div class="row">
+<div class="row">
     <div class="col-md-4">
       <img src= "http://i.stack.imgur.com/7YCkq.jpg" class="img-responsive" alt="Cinque Terre"> <img src =  <?php echo $pimage?> class="img-circle" alt="avatar">
       <p class = "teamLabel"><strong>Creator:     <strong>  <?php echo $creator?></p>
