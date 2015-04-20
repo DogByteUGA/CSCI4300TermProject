@@ -36,8 +36,7 @@
 		}
 
 		h4{
-			color: darkred;
-			margin-left: 10px;
+			color: white;
 			font-style: italic;
 		}
 
@@ -82,6 +81,10 @@
 	</head>
 	
 	<body>
+
+
+
+
 		<div id="bannerarea">
 			<img src="https://41.media.tumblr.com/671ba642b48ed5a3f92438cc796417ac/tumblr_nlx2p33nuR1tkwpyuo1_r1_400.png" alt="banner logo"> 
 			<br>
@@ -91,7 +94,51 @@
 			<br>
 			<br>	
 		</div>
-		
+	
+<div id="login">
+			<h2>Already have an account? Welcome back!</h2>
+			<form action = "./welcome.php" method ="post" accept-charset="utf-8">
+				<?php
+					if(isset($_POST['userLogin']) && isset($_POST['userPassword'])){
+						if($_POST['userLogin']=="" || $_POST['userPassword']==""){
+							?>
+							<p>Error. Invalid username or password.</p>
+							<?php
+						}
+						else{
+							$host="127.0.0.1:3306"; // Host name 
+							$username=""; // Mysql username 
+							$password=""; // Mysql password 
+							$db_name="ajax01"; // Database name 
+							$tbl_name="users"; // Table name 
+							// Connect to server and select databse.
+							mysql_connect("$host", "$username", "$password") or die("cannot connect"); 
+							mysql_select_db("$db_name") or die("cannot select DB");
+							// username and password sent from form 
+							$myusername=$_POST['userLogin']; 
+							$mypassword=$_POST['userPassword']; 
+							$sql="SELECT * FROM $tbl_name WHERE user_name='$myusername' and user_password='$mypassword'";
+							$result=mysql_query($sql);
+							// Mysql_num_row is counting table row
+							$count=mysql_num_rows($result);
+							// If result matched $myusername and $mypassword, table row must be 1 row
+							if($count==1){
+								header("location:project-search.php");
+							}	
+						}
+					}
+				?>
+				<input type="text" name="userLogin" class="textfield" placeholder="Username" maxlength="20">
+				<br>
+				<br>
+				<input type="password" name="userPassword" class="textfield" placeholder="Password" maxlength="20">
+				<br>
+  		   		<div class="checkbox">
+    		   		<label><input type="checkbox"> Remember me</label>
+  		   		</div>
+				<input type="submit" id="signin" name="submit"  class="btn btn-primary btn-lg" value="Sign In">
+			</form>
+
  		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   		<div class="modal-dialog">
     		<div class="modal-content">
@@ -219,20 +266,21 @@ if(isset($_POST['username'])){
 
     //db connect & select
     $db=mysql_connect('127.0.0.1','','');
-    mysql_select_db('users');
+    mysql_select_db('ajax01');
 
     //check if page already exists
-    $result = mysql_query('SELECT pagename from yourtable WHERE url="'.mysql_real_escape_string($pagename).'"');
+    //$result = mysql_query('SELECT pagename from users WHERE url="'.mysql_real_escape_string($pagename).'"');
 
         //inset new page into db
-        mysql_query('INSERT into yourtable (`username`,`name`,`email`,`number`,`address`,`major`,`url`)VALUES("",
+        mysql_query('INSERT into `users` (`user_username`,`user_name`,`user_email`,`user_number`,`user_address`,`user_major`,`user_url`,)VALUES("",
         "'.mysql_real_escape_string(htmlentities($_POST['username'])).'",
         "'.mysql_real_escape_string(htmlentities($_POST['name'])).'",
         "'.mysql_real_escape_string(htmlentities($_POST['email'])).'",
         "'.mysql_real_escape_string(htmlentities($_POST['number'])).'",
         "'.mysql_real_escape_string(htmlentities($_POST['address'])).'",
-        "'.mysql_real_escape_string(htmlentities($_POST['major'])).'",        
+        "'.mysql_real_escape_string(htmlentities($_POST['major'])).'",   
         "'.$pagename.'")');
+
         //put the created content to file
         file_put_contents('./users/'.$pagename,$page);
         //make a notice to show the user
@@ -243,33 +291,13 @@ if(isset($_POST['username'])){
 		<?php //notify if successful making user profile
 			if(isset($notice)){
 		?>
-			<h4>Successfully registered! Please sign into your account to get started.</h4>
+			<h4>Successfully registered!</h4>
+			<h4>Please sign into your account to get started.</h4>
 		<?php
 		} 
 		?>
 	
-		<div id="login">
-			<h2>Already have an account? Welcome back!</h2>
-			<form action = "./welcome.php" method ="post" accept-charset="utf-8">
-				<?php
-					if(isset($_POST['userLogin'])||isset($_POST['userPassword'])){
-				?>
-					<p>Error. Invalid username or password.</p>
-				<?php
-					}
-				?>
-				<input type="text" name="userLogin" class="textfield" placeholder="Username" maxlength="20">
-				<br>
-				<br>
-				<input type="password" name="userPassword" class="textfield" placeholder="Password" maxlength="20">
-				<br>
-  		   		<div class="checkbox">
-    		   		<label><input type="checkbox"> Remember me</label>
-  		   		</div>
-				<input type="submit" id="signin" name="submit"  class="btn btn-primary btn-lg" value="Sign In">
-			</form>
 		</div>
-
 		<h3>Property of DogByte</h3>
 	</body>
 </html>
