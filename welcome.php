@@ -199,7 +199,7 @@
 //Template for basic page
 $template = <<<EOD
 <?php 
-   include '../user-header.php';
+   include '../nav-bar.html';
 ?>
 <!DOCTYPE html>
 <head>
