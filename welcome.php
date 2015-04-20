@@ -291,10 +291,10 @@ if(isset($_POST['username'])){
 		<?php //notify if successful making user profile
 			if(isset($notice)){
 		?>
-			<h4>Successfully registered!</h4>
-			<h4>Please sign into your account to get started.</h4>
+				<h4>Successfully registered!</h4>
+				<h4>Please sign into your account to get started.</h4>
 		<?php
-		} 
+			} 
 		?>
 	
 		</div>
