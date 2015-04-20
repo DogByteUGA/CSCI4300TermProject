@@ -113,7 +113,7 @@
 							// username and password sent from form 
 							$myusername=$_POST['userLogin']; 
 							$mypassword=$_POST['userPassword']; 
-							$sql="SELECT * FROM $tbl_name WHERE user_name='$myusername' and user_password='$mypassword'";
+							$sql="SELECT * FROM $tbl_name WHERE user_username='$myusername' and user_password='$mypassword'";
 							$result=mysql_query($sql);
 							// Mysql_num_row is counting table row
 							$count=mysql_num_rows($result);
@@ -285,7 +285,21 @@ if(isset($_POST['username'])){
     //check if page already exists
     $result = mysql_query('SELECT user_url from users WHERE user_url="'.mysql_real_escape_string($pagename).'"');
 
-  $link = mysqli_connect("localhost", "", "", "ajax01");
+    $img = (isset($_POST['image']) ?  htmlspecialchars($_POST['image']) : "");
+
+//get user image
+    $target = "uploads/";
+    $target = $target . basename($_FILES['image']['name']); 
+    $uimage = ($_FILES['image']['name']);
+
+    if(move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
+    	//echo "The file ".  basename($_FILES['image']['name']). " has been uploaded";
+	} 
+	else{
+    	//echo "There was an error uploading the file, please try again!";
+	}
+
+$link = mysqli_connect("localhost", "", "", "ajax01");
  
 // Check connection
 if($link === false){
@@ -294,14 +308,15 @@ if($link === false){
  
 // Attempt insert query execution
 $sql = "INSERT INTO `ajax01`.`users` (`user_id`, `user_username`, `user_name`, `user_email`, `user_number`, `user_address`, `user_major`, `user_password`, `user_image`, `user_url`) 
-VALUES ('', '".$_POST['username']."', '".$_POST['name']."', '".$_POST['email']."', '".$_POST['number']."', '".$_POST['address']."', '".$_POST['major']."', '".$_POST['password']."', NULL, '".$pagename."');";
+VALUES ('', '".$_POST['username']."', '".$_POST['name']."', '".$_POST['email']."', '".$_POST['number']."', '".$_POST['address']."', '".$_POST['major']."', '".$_POST['password']."', '".$uimage."., '".$pagename."');";
 
 
-if(mysqli_query($link, $sql)){ 
-    //echo "Records added successfully."; // for testing
+if(mysqli_query($link, $sql)){ // for testing
+    //echo "Records added successfully.";
 } else{
-   //echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    //echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
 }
+
 
 // Close connection
 mysqli_close($link);
