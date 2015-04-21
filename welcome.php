@@ -231,11 +231,6 @@ $template = <<<EOD
 			padding-right: 200px;
 			margin-top: 50px;
 		}
-		#projects{
-			position: relative;
-			float: left;
-			margin-top: 25px;
-		}
 		#avatar{
 			position: relative;
 			float: left;
@@ -257,15 +252,6 @@ $template = <<<EOD
 		<ul><b>Phone Number:</b> {number} </ul>
 		<ul><b>Address:</b> {address} </ul>
 		<ul><b>Major:</b> {major} </ul>
-	</div>
-	<div id="projects">
-		<h3>Current Projects:</h3>
-			<ul>
-				<form action="../project-create.php">
-					<input type="submit" value="Create a new project!">
-					</input>
-				</form>
-			</ul>
 	</div>
 	<div id="bg">
 	</div>
