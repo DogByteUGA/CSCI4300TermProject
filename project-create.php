@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link rel="icon" 
+      type="image/png" 
+      href="https://36.media.tumblr.com/5df34011333fec2b91442e41adcba3d2/tumblr_nlx2p33nuR1tkwpyuo4_r1_100.png">
 	<link href="ugacreate.css" type="text/css" rel="stylesheet" />
 	</head>
 	<body>
