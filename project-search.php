@@ -1,3 +1,10 @@
+<html>
+  <head>
+  <link rel="icon" 
+      type="image/png" 
+      href="https://36.media.tumblr.com/5df34011333fec2b91442e41adcba3d2/tumblr_nlx2p33nuR1tkwpyuo4_r1_100.png">
+  </head>
+
 <?php 
    include 'header.html';
 
@@ -8,36 +15,16 @@
       $password = "";
       $dbname = "ajax01";
 
-?>
-<div class="container">
-     <div class="jumbotron">
-       <h1>Current UGA Projects</h1>      
-       <p>Learn more about current UGA projects!</p>      
-       <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Filter by
-        <span class="caret"></span></button>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-          <li role="presentation"><a role="menuitem" tabindex="1" href="#">Computer Science</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="2" href="#">Animation</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="3" href="#">Video</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="4" href="#">Audio</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="5" href="#">Music</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="6" href="#">Gaming</a></li>
-          <li role="presentation"><a role="menuitem" tabindex="7" href="#">Other</a></li>
-        </ul>
-      </div>
-    </div>
-	<?php
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
     // set the PDO error mode to exception
     $sql = "SELECT * FROM projects
-			ORDER BY project_id;";
-	// perform query		
+      ORDER BY project_id;";
+  // perform query    
     $q = $conn->query($sql);
     $q->setFetchMode(PDO::FETCH_ASSOC);
 
-    echo "New record created successfully";
+    //echo "New record created successfully";
      $creator;
      $title;
      $description;
@@ -48,22 +35,15 @@ try {
 
 //load all rows in the database
     while ($r = $q->fetch()){
-	 $creator = htmlspecialchars($r['creator_name']); 
-	 $title =  htmlspecialchars($r['project_title']); 
- 	 $description =  htmlspecialchars($r['project_description']);
- 	 $location = htmlspecialchars($r['project_location']); 
-	 $date =  htmlspecialchars($r['project_date']); 
- 	 $type =  htmlspecialchars($r['project_type']);
-   $pimage =  htmlspecialchars($r['creator_image']);
-   $pimage = $pimage;
-
-   echo $pimage;
-
-
-
+   $creator = htmlspecialchars($r['creator_name']); 
+   $title =  htmlspecialchars($r['project_title']); 
+   $description =  htmlspecialchars($r['project_description']);
+   $location = htmlspecialchars($r['project_location']); 
+   $date =  htmlspecialchars($r['project_date']); 
+   $type =  htmlspecialchars($r['project_type']);
+   $pimage =  "uploads/". htmlspecialchars($r['creator_image']);
+   // echo $pimage;
     ?>
-	
-	
 
 <div class="row">
     <div class="col-md-4">
