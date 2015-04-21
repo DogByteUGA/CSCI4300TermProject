@@ -51,19 +51,19 @@
 					</iframe>
 				
 			<h2>Tags (select at least one): </h2>
-				<input type="checkbox" name="tag" value="CompSci"/>Computer Science
+				<input type="radio" name="tag" value="CompSci"/>Computer Science
 				<br>
-				<input type = "checkbox" name="tag" value="Animation"/>Animation
+				<input type = "radio" name="tag" value="Animation"/>Animation
 				<br>
-				<input type="checkbox" name="tag" value="CompSci"/>Video
+				<input type="radio" name="tag" value="CompSci"/>Video
 				<br>
-				<input type = "checkbox" name="tag" value="Audio"/>Audio
+				<input type = "radio" name="tag" value="Audio"/>Audio
 				<br>
-				<input type="checkbox" name="tag" value="Music"/>Music
+				<input type="radio" name="tag" value="Music"/>Music
 				<br>
-				<input type = "checkbox" name="tag" value="Gaming"/>Gaming
+				<input type = "radio" name="tag" value="Gaming"/>Gaming
 				<br>
-				<input type="checkbox" name="tag" value="Other"/>Other
+				<input type="radio" name="tag" value="Other"/>Other
 				<br>
 				<br>
 			<input type="submit" name="submit" class="submit" value="Post Your Project"/>
