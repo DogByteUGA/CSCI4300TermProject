@@ -2,6 +2,9 @@
 	<head>
 	<meta charset="utf-8" />
 		<title>UGACreate</title>
+	<link rel="icon" 
+      	type="image/png" 
+      	href="https://36.media.tumblr.com/5df34011333fec2b91442e41adcba3d2/tumblr_nlx2p33nuR1tkwpyuo4_r1_100.png">
       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -208,6 +211,9 @@ $template = <<<EOD
 ?>
 <!DOCTYPE html>
 <head>
+	<link rel="icon" 
+      	type="image/png" 
+      	href="https://36.media.tumblr.com/5df34011333fec2b91442e41adcba3d2/tumblr_nlx2p33nuR1tkwpyuo4_r1_100.png">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>{username}'s Profile</title>
 	<style>
