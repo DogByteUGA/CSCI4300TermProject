@@ -1,67 +1,76 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	   <title>UGA CREATE</title>
-	   <meta charset="utf-8" />
-  	   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  	    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <head>
+     <title>UGA CREATE</title>
+     <meta charset="utf-8" />
+       <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 
-  	    <style>
-  	     .col-md-4{
-  	      	border: 1px solid gray;
-  	      	height: 200px;
-  	      	padding: 0px;
-  	      }
-  	      .col-md-8{
-  	      	border: 1px solid gray;
-  	      	height: 220px;
-  	      }
-  	      .img-circle{
-    	     position: absolute;
-    	     top: 35%;
-    	     left: 35%;
-    	     width: 25%;
-    	     background-color: white;
-		}
-		.teamLabel{
-			 position: absolute;
-			 color: black;
-			 font-size: 15px;
-    	     top: 78%;
-    	     left: 10%;
-    	    
+        <style>
+         .col-md-4{
+            border: 1px solid gray;
+            height: 200px;
+            padding: 0px;
+          }
+          .col-md-8{
+            border: 1px solid gray;
+            height: 220px;
+          }
+          .img-circle{
+           position: absolute;
+           top: 35%;
+           left: 35%;
+           width: 25%;
+           background-color: white;
+    }
+    .teamLabel{
+       position: absolute;
+       color: black;
+       font-size: 15px;
+           top: 78%;
+           left: 10%;
+          
 
-		}
-		.teamLabel > .img-circle{
-  	      	border: 1px solid gray;
-  	      	height: 200px;
-  	      	padding: 0px;
-  	      }
+    }
+    .teamLabel > .img-circle{
+            border: 1px solid gray;
+            height: 200px;
+            padding: 0px;
+          }
 
-  	    
+        
 
-  	      </style>
+          </style>
 
 
 
-	</head>
+  </head>
    <body>
       <nav class="navbar navbar-inverse">
         <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="">UGA CREATE</a>
+              <a class="navbar-brand" href="./welcome.php">UGA CREATE</a>
             </div>
           <div>
          <ul class="nav navbar-nav">
-           <li class="active"><a href="./users/template.php">My Profile</a></li>
+              <?php
+              session_start();
+              $result = "./users/";
+              $result = $result . $_SESSION['username'];
+              $result = $result . ".php";
+              ?>
+           <li class="active"><a href= <?php echo $result ?> >My Profile</a></li>
            <li><a href="./project-search.php">Project Search</a></li>
          </ul>
+         <ul class="nav navbar-nav navbar-right">
+        <li><a href="./welcome.php"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+      </ul>
        </div>
       </div>
      </nav>
   
-   <div class="container">
+     <div class="container">
      <div class="jumbotron">
        <h1>Current UGA Projects</h1>      
        <p>Learn more about current UGA projects!</p>      
@@ -79,5 +88,6 @@
         </ul>
       </div>
     </div>
+   
 
   
