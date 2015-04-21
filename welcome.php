@@ -119,8 +119,15 @@
 							$count=mysql_num_rows($result);
 							// If result matched $myusername and $mypassword, table row must be 1 row
 							if($count==1){
+								session_start();
+								$_SESSION['username'] = $myusername;
 								header("location:project-search.php");
-							}	
+							}
+							else{
+								?>
+								<p>Error. Invalid username or password.</p>
+								<?php
+							}
 						}
 					}
 				?>
@@ -129,9 +136,7 @@
 				<br>
 				<input type="password" name="userPassword" class="textfield" placeholder="Password" maxlength="20">
 				<br>
-  		   		<div class="checkbox">
-    		   		<label><input type="checkbox"> Remember me</label>
-  		   		</div>
+				<br>
 				<input type="submit" id="signin" name="submit"  class="btn btn-primary btn-lg" value="Sign In">
 			</form>
 
@@ -279,6 +284,7 @@ if(isset($_POST['username'])){
     $page = str_replace('{number}',htmlentities($_POST['number']),$page);
     $page = str_replace('{address}',htmlentities($_POST['address']),$page);
     $page = str_replace('{major}',htmlentities($_POST['major']),$page);
+
     //create a name for the new page
     $pagename = ($_POST['username']).'.php';
 
@@ -292,8 +298,14 @@ if(isset($_POST['username'])){
     $target = $target . basename($_FILES['image']['name']); 
     $uimage = ($_FILES['image']['name']);
 
+    $avatar = "../uploads/";
+    $avatar = $avatar . $uimage;
+
+    // echo $uimage;
+
     if(move_uploaded_file($_FILES['image']['tmp_name'], $target)) {
     	//echo "The file ".  basename($_FILES['image']['name']). " has been uploaded";
+    	$page = str_replace('https://41.media.tumblr.com/9f93f36af014846dc6046e2c2a920473/tumblr_nlx2p33nuR1tkwpyuo3_r1_250.jpg',htmlentities($avatar),$page);
 	} 
 	else{
     	//echo "There was an error uploading the file, please try again!";
@@ -308,7 +320,7 @@ if($link === false){
  
 // Attempt insert query execution
 $sql = "INSERT INTO `ajax01`.`users` (`user_id`, `user_username`, `user_name`, `user_email`, `user_number`, `user_address`, `user_major`, `user_password`, `user_image`, `user_url`) 
-VALUES ('', '".$_POST['username']."', '".$_POST['name']."', '".$_POST['email']."', '".$_POST['number']."', '".$_POST['address']."', '".$_POST['major']."', '".$_POST['password']."', '".$uimage."., '".$pagename."');";
+VALUES ('', '".$_POST['username']."', '".$_POST['name']."', '".$_POST['email']."', '".$_POST['number']."', '".$_POST['address']."', '".$_POST['major']."', '".$_POST['password']."', '".$uimage."', '".$pagename."');";
 
 
 if(mysqli_query($link, $sql)){ // for testing
